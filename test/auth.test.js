@@ -27,9 +27,8 @@ describe('Auth', () => {
       })
       .expect(200)
       .then((response) => {
-        expect(response.body).to.deep.equal({
-          email: 'things@things.com',
-          id: 1
+        expect(response.body).to.deep.include({
+          email: 'things@things.com'
         })
       })
   )
