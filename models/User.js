@@ -38,7 +38,7 @@ class User {
             .then((res) => {
               if (res) {
                 delete user.password
-                return createToken(user)
+                return user
               }
               return Promise.reject(new Error('Invalid password'))
             })
