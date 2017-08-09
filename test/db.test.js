@@ -15,20 +15,13 @@ describe('DB', () => {
   })
 
   describe('User', () => {
-    it('Should create a user', () => {
+    it('Should create a user', () =>
       User.create({
-        email: 'things@things.com',
+        email: 'things2@things.com',
         password: 'password123'
       }).then((user) => {
-        expect(user.email).to.equal('things@things.com')
+        expect(user.email).to.equal('things2@things.com')
       })
-    })
-
-    it('Should get all users', () => {
-      User.getAll().then((users) => {
-        expect(users.length).to.equal(1)
-        expect(users[0].email).to.equal('things@things.com')
-      })
-    })
+    )
   })
 })

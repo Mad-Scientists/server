@@ -27,9 +27,20 @@ describe('Auth', () => {
       })
       .expect(200)
       .then((response) => {
-        expect(response.body).to.deep.include({
-          email: 'things@things.com'
-        })
+        expect(response.body).to.have.property('token')
+      })
+  )
+  it('Should login a user', () =>
+    request(app)
+      .post(`${AUTH_BASE}/login`)
+      .set('Accept', 'application/json')
+      .send({
+        email: 'things@things.com',
+        password: 'password123'
+      })
+      .expect(200)
+      .then((response) => {
+        expect(response.body).to.have.property('token')
       })
   )
 })
